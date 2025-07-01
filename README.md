@@ -5,7 +5,7 @@
 ### Lý do chọn đề tài
 Trong kỷ nguyên số, dữ liệu là tài sản chiến lược giúp doanh nghiệp cạnh tranh và ra quyết định hiệu quả. Đặc biệt trong lĩnh vực thương mại điện tử, việc ứng dụng Business Intelligence (BI) giúp doanh nghiệp hiểu rõ hành vi khách hàng, tối ưu vận hành và đưa ra chiến lược phù hợp.
 ![image](https://github.com/user-attachments/assets/2a163ffb-af20-4add-acf1-63a559ec3d59)
-
+![image](https://github.com/user-attachments/assets/e7f82ab4-67cf-4a6b-a858-c728c4efeac4)
 Dữ liệu từ bộ **Global Superstore** (50.000+ bản ghi) cung cấp thông tin đa chiều về khách hàng, sản phẩm, đơn hàng – là nền tảng lý tưởng để triển khai các kỹ thuật BI như phân tích, trực quan hóa, và học máy.
 
 ### Mục tiêu nghiên cứu
