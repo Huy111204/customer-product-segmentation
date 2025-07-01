@@ -4,6 +4,7 @@
 
 ### Lý do chọn đề tài
 Trong kỷ nguyên số, dữ liệu là tài sản chiến lược giúp doanh nghiệp cạnh tranh và ra quyết định hiệu quả. Đặc biệt trong lĩnh vực thương mại điện tử, việc ứng dụng Business Intelligence (BI) giúp doanh nghiệp hiểu rõ hành vi khách hàng, tối ưu vận hành và đưa ra chiến lược phù hợp.
+![image](https://github.com/user-attachments/assets/2a163ffb-af20-4add-acf1-63a559ec3d59)
 
 Dữ liệu từ bộ **Global Superstore** (50.000+ bản ghi) cung cấp thông tin đa chiều về khách hàng, sản phẩm, đơn hàng – là nền tảng lý tưởng để triển khai các kỹ thuật BI như phân tích, trực quan hóa, và học máy.
 
@@ -108,8 +109,54 @@ Dashboard cung cấp cái nhìn trực quan về hiệu suất doanh nghiệp:
 
 ## Đề xuất chiến lược
 
-- ✅ **Tập trung vào nhóm sản phẩm lợi nhuận cao**: Đặc biệt là công nghệ.
-- ✅ **Chăm sóc khách hàng trung thành**: Khuyến mãi, ưu tiên giao hàng, tích điểm.
-- ✅ **Tối ưu chi phí giao hàng**: Hợp tác vận chuyển hiệu quả hơn, gom đơn thông minh.
-- ✅ **Rà soát nhóm sản phẩm kém hiệu quả**: Loại bỏ hoặc cải tiến nội thất.
-- ✅ **Tận dụng thời điểm cao điểm & hành vi theo mùa** để thúc đẩy doanh số.
+- ✅ **Tập trung vào nhóm sản phẩm lợi nhuận cao**
+- ✅ **Chăm sóc khách hàng trung thành**
+- ✅ **Tối ưu chi phí giao hàng**
+- ✅ **Rà soát nhóm sản phẩm kém hiệu quả**
+- ✅ **Tận dụng thời điểm cao điểm & hành vi theo mùa** 
+## Kết luận mô hình phân cụm
+
+### 🎯 Các kết quả đạt được
+| Phân cụm     | Silhouette (K‑Means) | Silhouette (DBSCAN) |
+|--------------|----------------------|---------------------|
+| Khách hàng   | 0.5776               | 0.325               |
+| Sản phẩm     | 0.7770               | 0.751               |
+
+![image](https://github.com/user-attachments/assets/a5e04e0d-9cbb-4731-b45e-b0d8a0409b44)
+> **Hình 7.** So sánh kết quả phân cụm RFM (K‑Means vs. DBSCAN) trên PCA
+![image](https://github.com/user-attachments/assets/d4a306b8-80e1-4ffd-870a-430f642f1bc4)
+> **Hình 8.** Kết quả phân cụm sản phẩm (K‑Means vs. DBSCAN) trên PCA
+
+### 📝 Đánh giá mô hình
+- **K‑Means**  
+  - Phân chia rõ 3 nhóm “cao – trung bình – thấp” (RFM) và “bán chậm – tầm trung – bán chạy” (sản phẩm).  
+  - Silhouette cao: 0.58 (khách), 0.78 (sản phẩm).  
+  - Phù hợp khi biết trước số cụm và cần kết quả minh bạch.
+
+- **DBSCAN**  
+  - Tự động phát hiện cụm mật độ và noise.  
+  - Hiệu quả trên sản phẩm (Silhouette 0.75), kém trên RFM khách hàng (0.33).  
+  - Không cần xác định k nhưng phụ thuộc EPS & minPts.
+
+### ⚠️ Hạn chế
+- **K‑Means**:  
+  - Cần chọn trước k, giả định hình cầu, kết quả phụ thuộc khởi tạo ngẫu nhiên.  
+- **DBSCAN**:  
+  - Nhạy với tham số; kém hiệu quả trên dữ liệu đa chiều hoặc mật độ biến thiên.
+
+### 💡 Đề xuất cải tiến
+1. **Mở rộng bộ đặc trưng**  
+   - Khách hàng: thêm “thời gian gắn bó”, “biến động chi tiêu”,…  
+   - Sản phẩm: thêm “tỷ lệ trả lại”, “biên lợi nhuận trung bình”, “tăng trưởng doanh số”,…
+
+2. **Thử thuật toán khác**  
+   - **Gaussian Mixture Models (GMM)** để phân cụm mềm, phát hiện nhóm chuyển tiếp.
+
+### 🔚 Kết luận & Khuyến nghị
+- **Kết luận**:  
+  BI + Power BI kết hợp phân cụm (K‑Means, DBSCAN) đã giúp phân khúc rõ ràng, hỗ trợ cá nhân hóa và tối ưu danh mục.
+
+- **Khuyến nghị**:  
+  - Duy trì dashboard theo dõi định kỳ.  
+  - Kết hợp linh hoạt K‑Means & DBSCAN, thử GMM.  
+  - Liên tục bổ sung đặc trưng, tối ưu tham số và kiểm thử nhiều phương pháp.
