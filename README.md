@@ -18,40 +18,56 @@ Docker Image: 👉 **[`hoanghuy2004/huy1segmentation`](https://hub.docker.com/r/
 ### 🪜 Các bước thực hiện
 
 #### ✅ Bước 1: Tạo thư mục output ( dùng để lưu hình ảnh trực quan của k-means và dbscan )
+
 Tạo thư mục trên máy để lưu các biểu đồ sau khi chạy:
+
 Ví dụ:  C:\Users\<TênUser>\Downloads\output ( đây là đường link output trên local host của máy bạn ) 
-#### ✅ Bước 2 : Mở PowerShell (Windows Terminal) và chạy lệnh sau:
 
+### ✅ Bước 2: Mở PowerShell và chạy lệnh sau:
+
+```powershell
 docker run --rm -v "C:\Users\<TênUser>\Downloads\output:/app/output" hoanghuy2004/huy1segmentation
+```
 
-Lưu ý:
-Thay thế <TênUser> bằng tên người dùng máy tính của bạn.
-Nếu bạn dùng Mac/Linux, thay đường dẫn volume bằng ~/Downloads/output:/app/output.
+> 📝 **Lưu ý**:
+>
+> - Thay `<TênUser>` bằng **tên người dùng máy tính của bạn**.
+> - Nếu bạn dùng Mac/Linux, dùng đường dẫn:>   `~/Downloads/output:/app/output`
 
-📁 Kết quả sau khi chạy
-Trong thư mục output, bạn sẽ nhận được các hình ảnh biểu đồ:
+---
 
-Tên file	Mô tả
-elbow_rfm.png	Biểu đồ Elbow method cho RFM
-silhouette_rfm.png	Silhouette Score các cụm RFM
-pca_rfm.png	PCA 2D phân cụm khách hàng
-pairplot_rfm.png	Biểu đồ phân tán RFM theo cụm
-dbscan_pca_rfm.png	Phân cụm khách hàng bằng DBSCAN (PCA)
-pca_product.png	PCA 2D phân cụm sản phẩm
-boxplot_totalprofit.png	Boxplot lợi nhuận theo cụm sản phẩm
-pairplot_product.png	Pairplot cụm sản phẩm
-dbscan_product_pca.png	Phân cụm sản phẩm bằng DBSCAN
-compare_rfm_kmeans_dbscan.png	So sánh KMeans vs DBSCAN (RFM)
-compare_prod_kmeans_dbscan.png	So sánh KMeans vs DBSCAN (Product)
+## 📁 Kết quả sau khi chạy
 
-📌 Thông tin kỹ thuật
-Python 3.10
+Toàn bộ hình ảnh sẽ được lưu tại thư mục `output`. Bao gồm:
 
-Thư viện: pandas, scikit-learn, seaborn, matplotlib
+| Tên file                         | Mô tả                                 |
+| -------------------------------- | ------------------------------------- |
+| `elbow_rfm.png`                  | Elbow method cho phân cụm RFM         |
+| `silhouette_rfm.png`             | Silhouette Score cho RFM              |
+| `pca_rfm.png`                    | PCA 2D cụm khách hàng                 |
+| `pairplot_rfm.png`               | Phân tán RFM theo cụm                 |
+| `dbscan_pca_rfm.png`             | DBSCAN khách hàng (PCA)               |
+| `pca_product.png`                | PCA 2D cụm sản phẩm                   |
+| `boxplot_totalprofit.png`        | Phân phối lợi nhuận theo cụm sản phẩm |
+| `pairplot_product.png`           | Phân tán cụm sản phẩm                 |
+| `dbscan_product_pca.png`         | DBSCAN sản phẩm (PCA)                 |
+| `compare_rfm_kmeans_dbscan.png`  | So sánh KMeans vs DBSCAN (RFM)        |
+| `compare_prod_kmeans_dbscan.png` | So sánh KMeans vs DBSCAN (Sản phẩm)   |
 
-Docker Base: python:3.10-slim
+---
 
-Clustering: KMeans, DBSCAN, PCA, RFM Analysis
+## ⚙️ Thông tin kỹ thuật
+
+- Python: **3.10**
+- Thư viện: `pandas`, `scikit-learn`, `seaborn`, `matplotlib`
+- Docker base: `python:3.10-slim`
+- Clustering:
+  - `KMeans`
+  - `DBSCAN`
+  - `PCA`
+  - `RFM Analysis`
+
+---
 
 
 
