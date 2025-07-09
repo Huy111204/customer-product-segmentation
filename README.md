@@ -1,4 +1,4 @@
-# customer-product-segmentation
+# Customer-Product-Segmentation Analysis
 
 # Customer & Product Segmentation - Dockerized
 
